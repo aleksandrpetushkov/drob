@@ -4,18 +4,20 @@
 class algo_drob
 {
 public:
-	void calc(const double &val, const double &_error)
+	std::vector<drob>* calc(const double &val, const double &_error, std::vector<drob> * mass)
 	{
 		if (val < 3.0e-10 || val > 4.0e+10 || _error < 0.0)
 		{
 			throw "Uncorrected value(s)";
 		}
+		result = mass;
 		d = D = 1;
 		n = (int)val;
 		N = n + 1;
 		error = _error;
 		v = val;
 		three();
+		return result;
 	}
 	
 	void one() 
@@ -64,7 +66,7 @@ public:
 	}
 	void four()
 	{
-		std::cout << n << "/" << d<<"  ";
+		//std::cout << n << "/" << d<<"  ";
 		//printf("%d/%d", *n, *d);
 		epsilon = 1.0 - n / (v*d);
 		if (epsilon <= error)
@@ -85,8 +87,12 @@ public:
 	}
 	void six()
 	{
+		drob dr(n, d, epsilon);
 		//printf("	 %e\n", epsilon);
-		std::cout << "epsilon =" << epsilon << std::endl;
+		//std::cout << "epsilon =" << epsilon << std::endl;
+		(*result).push_back(dr);
+		//std::cout << (*result).size() << std::endl;
+
 		if (r != 0.0 && epsilon > error)
 		{
 
@@ -104,8 +110,7 @@ public:
 private:
 	//int D, N, t;
 	//double  r;// m,
-
+	std::vector<drob> *result;
 	int D, N, t,n, d;
 	double _chis, _znam, error, v, epsilon, r, m;
-	std::vector<drob> result;
 };
