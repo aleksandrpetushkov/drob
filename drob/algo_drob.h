@@ -1,7 +1,7 @@
 #include "drob.h"
 #include <vector>
 
-class algo_drob
+class algo_drob //Класс-алгоритм
 {
 public:
 	std::vector<drob>* calc(const double &val, const double &_error, std::vector<drob> * mass)
@@ -20,6 +20,7 @@ public:
 		return result;
 	}
 	
+private:
 	void one() 
 	{
 		if (r > 1.0)
@@ -95,7 +96,6 @@ public:
 		}
 		
 	}
-private:
 	std::vector<drob> *result;
 	int D, N, t,n, d;
 	double _chis, _znam, error, v, epsilon, r, m;
