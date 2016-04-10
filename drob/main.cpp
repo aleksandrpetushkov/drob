@@ -1,16 +1,15 @@
 #include <iostream>
 #include <vector>
+#include "algo_drob.h"
 
 
-int ker()
-{
-	return 1;
-
-}
 
 int main()
 {
-	std::vector<int> v;
-	std::cout << sizeof(v);
+	//std::cout << "Hello";
+
+	algo_drob algo;
+	algo.calc(3.02384534005, 1.0e-10);
+
 	std::cin.get();
 }
