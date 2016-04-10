@@ -66,8 +66,6 @@ public:
 	}
 	void four()
 	{
-		//std::cout << n << "/" << d<<"  ";
-		//printf("%d/%d", *n, *d);
 		epsilon = 1.0 - n / (v*d);
 		if (epsilon <= error)
 		{
@@ -88,28 +86,16 @@ public:
 	void six()
 	{
 		drob dr(n, d, epsilon);
-		//printf("	 %e\n", epsilon);
-		//std::cout << "epsilon =" << epsilon << std::endl;
 		(*result).push_back(dr);
-		//std::cout << (*result).size() << std::endl;
 
 		if (r != 0.0 && epsilon > error)
 		{
 
 			one();
 		}
-		/*
-		if (epsilon <= error)
-		{
-			return;
-
-		}
-		//*/
 		
 	}
 private:
-	//int D, N, t;
-	//double  r;// m,
 	std::vector<drob> *result;
 	int D, N, t,n, d;
 	double _chis, _znam, error, v, epsilon, r, m;
